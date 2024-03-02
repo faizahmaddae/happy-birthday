@@ -4,9 +4,21 @@ var w = c.width = window.innerWidth,
 		
 		hw = w / 2, // half-width
 		hh = h / 2,
+
+		// get a parameter from url
+		get = function( name ){
+			var match = RegExp( '[?&]' + name + '=([^&]*)' ).exec( window.location.search );
+			return match && decodeURIComponent( match[ 1 ] );
+		},
+
+
+		// how to use 
+		p = get( 'p' ) || 'My Life',
+		// appercase the first letter
+		p = p.toUpperCase(),
 		
 		opts = {
-			strings: [ 'HAPPY', 'BIRTHDAY!','My Life' ],
+			strings: [ 'HAPPY', 'BIRTHDAY!', p ],
 			charSize: 30,
 			charSpacing: 35,
 			lineHeight: 40,
